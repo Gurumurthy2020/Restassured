@@ -51,6 +51,7 @@ public class Basics {
 		 String actual=jp2.getString("address");
 		 System.out.println(actual);
 		 Assert.assertEquals(actual, newaddress);
+		 System.out.println("hi");
 		 
 		
 		
