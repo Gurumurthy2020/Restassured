@@ -89,7 +89,8 @@ public class JsonpayloadusingFIle {
 		data.put("aisle", "9996633");
 		data.put("author", "ohn foer");
 		data.accumulate("author", "ishu");
-
+		data.append("author2", "ishu");
+		
 		JSONArray abc= new JSONArray();
 		abc.put("tester");
 		abc.put("qws");

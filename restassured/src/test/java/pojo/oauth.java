@@ -1,4 +1,4 @@
-package com.rest;
+package pojo;
 import static io.restassured.RestAssured .*;
 import static org.hamcrest.Matchers.*;
 
@@ -6,11 +6,8 @@ import java.util.List;
 
 import org.testng.annotations.Test;
 
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
-import pojo.API;
-import pojo.Course;
-import pojo.Getcourse;
-import pojo.WebAutomation;
 public class oauth {
 	
 	@Test
@@ -24,6 +21,7 @@ public class oauth {
 		System.out.println(response);
 		JsonPath jp=new JsonPath(response);
 		String access=jp.getString("access_token");
+		
 		
 //		String response2=given().queryParam("access_token", access)
 //		.when().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails?access_token=O2Ewjz1EcQXbsbMprKsoeA==").asString();
