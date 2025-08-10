@@ -6,10 +6,12 @@ import org.testng.annotations.Test;
 import files.payload;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured .*;
 import static org.hamcrest.Matchers.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -73,4 +75,17 @@ public class Dynamic {
 		.then().statusCode(200).body("msg", equalTo("book is successfully deleted"));
 	}
 	
+
+	@Test
+	public void addBookUsingPayloadfile2() throws IOException {
+		RestAssured.baseURI="https://rahulshettyacademy.com";
+		String responnn=given().header("Content-Type","application/json")
+		.body(new File("src/test/java/files/addbook.json"))
+		.when().post("/Library/Addbook.php")
+		.then().statusCode(200).extract().response().asString();
+		System.out.println(responnn);
+		
+	}
+
+
 }
